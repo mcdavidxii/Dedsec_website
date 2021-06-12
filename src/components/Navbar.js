@@ -1,11 +1,11 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { Button } from './Button';
 import './Navbar.css';
 
 function Navbar() {
     const [click, setClick] = useState(false);
-    const [button,setButton] = useState(true)
+    const [button,setButton] = useState(true);
 
     const handleClick = ()=> setClick(!click);
     const closeMobileMenu = () => setClick(false);
@@ -18,14 +18,21 @@ function Navbar() {
             setButton(true)
         }
     };
-    window.addEventListener('resize',showButton)
+
+    /* allows you to render once and will never show again, that will allow Sign up to not show up
+    every time we refresh */
+    useEffect(() => {
+       showButton()
+    })
+
+    window.addEventListener('resize',showButton);
 
     return (
         <>
            <nav class="navbar">
                <div class="navbar-container">
-                   <Link to="/"  classname="navbar-logo"  >
-                       Dedsec <i class="fas fa-user-secret"></i>
+                   <Link to="/"  class="navbar-logo"  >
+                       Dedsec  <i class="fas fa-user-secret"></i>
                    </Link>
                    <div class='menu-icon' onClick={handleClick}> 
                        <i class={click ? 'fas fa-times' : 'fas fa-bars'} /> {/*this will remove the menu 
@@ -40,6 +47,11 @@ function Navbar() {
                        <li class='nav-item'>
                            <Link to="/about" class="nav-links" onClick={closeMobileMenu}>
                                About
+                           </Link>
+                       </li>
+                       <li class='nav-item'>
+                           <Link to="/services" class="nav-links" onClick={closeMobileMenu}>
+                               Services
                            </Link>
                        </li>
                        <li class='nav-item'>

@@ -3,7 +3,7 @@
     border-radius: 2px;
     outline: none;
     border:none;
-    cursor: none;
+    cursor: pointer;
 }
 
 .btn--primary{
