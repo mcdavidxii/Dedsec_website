@@ -31,7 +31,7 @@ function Navbar() {
         <>
            <nav class="navbar">
                <div class="navbar-container">
-                   <Link to="/"  class="navbar-logo"  >
+                   <Link to="/"  class="navbar-logo" onClick={closeMobileMenu} >
                        Dedsec  <i class="fas fa-user-secret"></i>
                    </Link>
                    <div class='menu-icon' onClick={handleClick}> 
