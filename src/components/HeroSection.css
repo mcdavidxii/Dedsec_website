@@ -36,6 +36,7 @@ video {
     margin-top: 32px;
 }
 
+/*gives the spacing between the buttons*/
 .hero-btns .btn {
     margin: 6px;
 }
